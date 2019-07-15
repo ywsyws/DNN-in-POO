@@ -1,5 +1,6 @@
+from create_dataset import CreateDataset
+from layer import FCLayer
 import matplotlib.pyplot as plt
-%matplotlib inline
 
 #
 # DATASET CREATION
