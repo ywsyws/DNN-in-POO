@@ -58,7 +58,7 @@ class Network:
         return predictions
     
     # evaluate the performace of the DNN model
-    def evaluate(self, X, y, loss_func, dataset_name="dataset", print_cost=False):
+    def evaluate(self, X, y, loss_fn, dataset_name="dataset", print_cost=False):
         y_hat = self.predict(X)
         accuracy = np.average((y == y_hat) * 1)
         print(f'Accuracy of the {dataset_name}: {accuracy * 100}%')

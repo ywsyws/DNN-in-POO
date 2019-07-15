@@ -1,5 +1,8 @@
 from create_dataset import CreateDataset
 from layer import FCLayer
+from loss import LossEntropy
+from network import Network
+from activation import Relu, Sigmoid
 import matplotlib.pyplot as plt
 
 #

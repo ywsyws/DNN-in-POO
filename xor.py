@@ -1,23 +1,26 @@
 from create_dataset import CreateDataset
 from layer import FCLayer
+from loss import LossEntropy
+from network import Network
+from activation import Relu, Sigmoid
 import matplotlib.pyplot as plt
 
 #
 # DATASET CREATION
 #
-size = 4000
+size = 40
 ds = CreateDataset()
 # create XOR dataset
 X_train, y_train = ds.create_xor(size)
-X_test, y_test = ds.create_xor(size/2)
+X_test, y_test = ds.create_xor(size//2)
 
 
 #
 # NEURAL NETWORK
 #
-learning_rate = 0.01
+learning_rate = 0.05
 loss_fn = LossEntropy()
-iteration = 100000 # 10000 * 1000 * 4
+iteration = 10000
 
 net = Network()
 net.combine(FCLayer(2, 4, Relu))
