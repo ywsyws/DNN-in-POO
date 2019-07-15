@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 #
 # DATASET CREATION
 #
-size = 4000
+size = 40000
 ds = CreateDataset()
 # create Circle dataset
 ds.create_circle(size)
@@ -19,9 +19,10 @@ X_train, X_test, y_train, y_test = ds.create_circle(size)
 # NEURAL NETWORK
 #
 
-learning_rate = 0.1
+learning_rate = 0.05
 loss_fn = LossEntropy()
-iteration = 100000
+iteration = 2000
+
 
 net = Network()
 net.combine(FCLayer(2, 4, Relu))
@@ -30,7 +31,7 @@ net.combine(FCLayer(6, 3, Relu))
 net.combine(FCLayer(3, 1, Sigmoid))
 
 # train the DNN model
-A = net.fit(X_train, y_train, iteration, loss_fn, learning_rate)
+A = net.fit(X_train, y_train, iteration, loss_fn, learning_rate, print_freq=400)
 
 # predict a result with a test dataset using the trained DNN model
 net.evaluate(X_test, y_test, loss_fn, dataset_name="test dataset", print_cost=True)
