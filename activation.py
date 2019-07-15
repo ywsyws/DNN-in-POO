@@ -1,3 +1,5 @@
+import numpy as np
+
 class Activation:
     """ the abstract class for all activation funtion classes"""
     
@@ -10,7 +12,7 @@ class Activation:
         raise NotImplementdError
     
     # to be used to finetune the initialized weight according to the activation function set for the first layer
-    def heuristic(self, layer_dims):
+    def heuristic(self, layer_b4):
         raise NotImplementdError
     
 
@@ -26,8 +28,8 @@ class Sigmoid(Activation):
         return A * (1 - A)
     
     # to be used to finetune the initialized weight if sigmoid function is set for the first layer
-    def heuristic(self, layer_dims):
-        return np.sqrt(1 / layer_dims)
+    def heuristic(self, layer_b4):
+        return np.sqrt(1 / layer_b4)
     
 
 class Tanh(Activation):
@@ -42,8 +44,8 @@ class Tanh(Activation):
         return 1 - A**2
     
     # to be used to finetune the initialized weight if tanh function is set for the first layer
-    def heuristic(self, layer_dims):
-        return np.sqrt(1 / layer_dims)
+    def heuristic(self, layer_b4):
+        return np.sqrt(1 / layer_b4)
     
     
 class Relu(Activation):
@@ -59,4 +61,4 @@ class Relu(Activation):
     
     # to be used to finetune the initialized weight if relu function is set for the first layer
     def heuristic(self, layer_b4):
-        return np.sqrt(2 / layer_b4) 
+        return np.sqrt(2 / layer_b4)
